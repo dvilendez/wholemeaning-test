@@ -1,56 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { Navbar } from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import { PokemonList } from "./components/PokemonList/PokemonList";
+import { PokemonReady } from "./components/PokemonReady/PokemonReady";
+import { PokemonSearcher } from "./components/PokemonSearcher/PokemonSearcher";
+import { PokemonDetail } from "./components/PokemonDetail/PokemonDetail";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Navbar></Navbar>
+      <div className="row">
+        <div className="col-8">
+          <Routes>
+            <Route path="/" element={<PokemonSearcher />} />
+            <Route path="search" element={<PokemonSearcher />} />
+            <Route path="detail/:id" element={<PokemonDetail />} />
+          </Routes>
+        </div>
+        <div className="col-4">
+          <PokemonReady/>
+        </div>
+      </div>
+      
+      
     </div>
   );
 }
