@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Pokemon } from '../../types/Pokemon'
+import { PokemonType } from '../../types/pokemon.type'
 import './PokemonReady.scss';
 import { PokemonElement } from "../PokemonElement/PokemonElement"
 

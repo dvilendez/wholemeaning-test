@@ -1,9 +1,9 @@
 import './Pokemon.scss';
-import { Pokemon } from "../../types/Pokemon";
+import { PokemonType } from "../../types/pokemon.type";
 import { useEffect, useState } from 'react';
 
 interface PokemonElementProps {
-  pokemon: Pokemon
+  pokemon: PokemonType
 }
 
 export const PokemonElement = ({ pokemon }: PokemonElementProps) => {

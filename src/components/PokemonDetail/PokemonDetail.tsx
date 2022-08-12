@@ -1,6 +1,6 @@
 import './PokemonDetail.scss'
 
-export const PokemonDetail: React.FunctionComponent = () => {
+export const PokemonDetail = () => {
   return (
     <>
       <div className="row text-center pokemon-detail">

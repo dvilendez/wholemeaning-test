@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Pokemon } from '../../types/Pokemon'
+import { PokemonType } from '../../types/pokemon.type'
 import { PokemonElement } from "../PokemonElement/PokemonElement"
 
 interface PokemonListProps {
-  pokemons: Pokemon[]
+  pokemons: PokemonType[]
 }
 
 export const PokemonList = ({ pokemons = [] }: PokemonListProps) => {

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { Pokemon } from "../../types/Pokemon"
+import { PokemonType } from "../../types/pokemon.type"
 import { PokemonList } from "../PokemonList/PokemonList"
 
 export const PokemonSearcher: React.FunctionComponent = () => {
 
   const [searchInput, setSearchInput]: [string, any] = useState('')
-  const [pokemons, setPokemons]: [Pokemon[], any] = useState([])
-  const [filteredPokemons, setFilteredPokemons]: [Pokemon[], any] = useState([])
+  const [pokemons, setPokemons]: [PokemonType[], any] = useState([])
+  const [filteredPokemons, setFilteredPokemons]: [PokemonType[], any] = useState([])
 
   const fetchPokemons = async (searchInput: string = ''): Promise<any> => {
     try {
@@ -24,7 +24,7 @@ export const PokemonSearcher: React.FunctionComponent = () => {
 
   useEffect(() => {
     if (searchInput) {
-      setFilteredPokemons(pokemons.filter((p: Pokemon) => p.name.includes(searchInput)))
+      setFilteredPokemons(pokemons.filter((p: PokemonType) => p.name.includes(searchInput)))
     } else {
       setFilteredPokemons(pokemons)
     }
