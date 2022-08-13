@@ -1,0 +1,12 @@
+.App {
+  max-height: 100vh;
+  background-image: url('./assets/images/background.png');
+  background-repeat: repeat;
+  background-color: #80AF72;
+  background-size: contain;
+}
+
+.content {
+  overflow-y: auto;
+  height: 100vh;
+}

@@ -1,41 +1,55 @@
 import './Pokemon.scss';
+import { useNavigate } from "react-router-dom";
 import { PokemonType } from "../../types/pokemon.type";
-import { useEffect, useState } from 'react';
+import logo from '../../assets/gifs/simple_pokeball.gif'
+import { usePokemon } from '../../hooks/usePokemon.hook';
 
 interface PokemonElementProps {
-  pokemon: PokemonType
+  pokemon: PokemonType,
+  buttonType: string
 }
 
-export const PokemonElement = ({ pokemon }: PokemonElementProps) => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [pokemonInfo, setPokemonInfo]: [any, any] = useState({})
+export const PokemonElement = ({ pokemon, buttonType }: PokemonElementProps) => {
+  const {
+    isLoading,
+    pokemonInfo,
+    handleAddPokemon,
+    handleRemovePokemon
+  } = usePokemon({
+    ...pokemon
+  })
 
-  const getPokemonInfo = async () => {
-    setIsLoading(true)
-    const response = await fetch(pokemon.url)
-    const data = await response.json()
-    console.log(data)
-    setPokemonInfo(data)
-    setIsLoading(false)
+  let navigate = useNavigate();
+
+  const goToDetail = () => {
+    if (!isLoading) {
+      navigate(`/detail/${pokemonInfo.id}`);
+    }
   }
-  useEffect(() => {
-    getPokemonInfo()
-  }, [])
   
   return (
-    <div className='pokemon'>
+    <div className='pokemon' onClick={goToDetail}>
+      {
+          buttonType === 'add' ? 
+            <button
+              className={`btn btn-success pokemon__float ${isLoading ? 'disabled' : ''}`}
+              onClick={handleAddPokemon}
+            >+</button> :
+            <button
+              className={`btn btn-danger pokemon__float ${isLoading ? 'disabled' : ''}`}
+              onClick={handleRemovePokemon}
+            >-</button>
+      }
+      
       <div className='pokemon__image'>
         {
           !isLoading ?
-            <img src={pokemonInfo.sprites.front_default} alt="" /> :
-            <img
-              src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-              alt=''
-            />
+          <img src={pokemonInfo.sprites.front_default} alt="pokemon" /> :
+          <img src={logo} alt="loading..."/>
         }
       </div>
       <div className='pokemon__name'>
-        <p>{pokemon.name}</p>
+        <p>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</p>
       </div>
     </div>
   )

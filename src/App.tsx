@@ -1,25 +1,23 @@
-import { Navbar } from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
-import { PokemonList } from "./components/PokemonList/PokemonList";
-import { PokemonReady } from "./components/PokemonReady/PokemonReady";
+import { PokemonTeam } from "./components/PokemonTeam/PokemonTeam";
 import { PokemonSearcher } from "./components/PokemonSearcher/PokemonSearcher";
 import { PokemonDetail } from "./components/PokemonDetail/PokemonDetail";
+import './App.scss'
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
       <div className="row">
-        <div className="col-8">
+        <div className="col-8 content">
           <Routes>
             <Route path="/" element={<PokemonSearcher />} />
             <Route path="search" element={<PokemonSearcher />} />
-            <Route path="detail/:id" element={<PokemonDetail />} />
+            <Route path="detail/:pokemonId" element={<PokemonDetail />} />
           </Routes>
         </div>
         <div className="col-4">
-          <PokemonReady/>
+          <PokemonTeam/>
         </div>
       </div>
       

@@ -1,11 +1,9 @@
-.pokemon-ready {
+.pokemon-team {
+  overflow-y: auto;
+  height: 100vh;
   &__title {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
-  }
-
-  &__container {
-
   }
 }

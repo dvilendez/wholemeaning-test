@@ -1,4 +1,30 @@
+.container {
+  min-height: 100vh;
+}
+
 .pokemon-detail {
+  border: 1px solid #f1f1f1;
+  border-radius: 15px;
+  position: relative;
+  hr {
+    margin-top: 20px;
+    color: #f1f1f1
+  }
+  &__float {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    color:#FFF;
+    border-top-left-radius: 15px;
+    text-align:center;
+    z-index: 1001;
+    &--right {
+      top: 0px;
+      right: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 15px;
+    }
+  }
   &__image {
     img {
       max-width: 100%;
