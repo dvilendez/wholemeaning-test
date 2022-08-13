@@ -6,6 +6,12 @@
   background-size: contain;
 }
 
+@media screen and (max-width: 1210px) {
+  .App {
+    background-repeat: no-repeat;
+  }
+}
+
 .content {
   overflow-y: auto;
   height: 100vh;

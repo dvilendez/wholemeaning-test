@@ -10,7 +10,7 @@ import {
     // para activar el estado de cargando
     dispatch(startLoadingPokemons())
     // obtenemos informacion de los pokemones
-    const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=70')
+    const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
     // asignamos los pokemones a nuestro store
     dispatch(setPokemons(data.results))
   }

@@ -23,10 +23,7 @@ export const pokemonSlice = createSlice({
 			state.isLoading = true
 		},
 		setPokemons: (state, action) => {
-			state.pokemons = action.payload.map((data:any) => ({
-				...data,
-				hasDetailInfo: false
-			}))
+			state.pokemons = action.payload
 			state.isLoading = false
 		},
 		addPokemonWithDetail: (state, action) => {

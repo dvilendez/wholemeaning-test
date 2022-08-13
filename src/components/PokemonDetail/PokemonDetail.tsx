@@ -65,8 +65,8 @@ export const PokemonDetail = () => {
               Número: {pokemonInfo.id}
             </div>
             <hr />
-            <div className='col-12 pokemon-detail__number'>
-              Peso: {pokemonInfo.height}
+            <div className='col-12 pokemon-detail__height'>
+              Altura: {pokemonInfo.height}
             </div>
             <hr />
             <div className='col-12 pokemon-detail__types'>

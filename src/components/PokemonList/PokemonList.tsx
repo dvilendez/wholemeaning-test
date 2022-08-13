@@ -7,8 +7,8 @@ interface PokemonListProps {
 
 export const PokemonList = ({ pokemons = [] }: PokemonListProps) => {
   return (
-    <div className='container text-center'>
-      <div className="row">
+    // <div className='container text-center'>
+      <div className="row text-center">
         {
           pokemons.map((p, i) => (
             <div
@@ -23,6 +23,6 @@ export const PokemonList = ({ pokemons = [] }: PokemonListProps) => {
           ))
         }
       </div>
-    </div>
+    // </div>
   )
 }
